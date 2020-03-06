@@ -13,14 +13,11 @@ from config import dbconfig
 #__name__ - определяет текущее активное пространство имен
 
 app = Flask(__name__)
-app.config['dbconfig'] = dbconfig
+app.config['dbconfig'] = dbconfig  # добавляем словарь с параметрами в внутренний словарь flask (app.config)
 #app.secret_key = secret_key
 
-# дальше добавляем словарь с параметрами в внутренний словарь flask (app.config)
-#app.config['dbconfig'] = {'host': '127.0.0.1',   #определим параметры соединения
-#                        'user': 'vsearch2',
-#                        'password': 'pass',   ##// ключу password присваивается пароль, который указали для доступа к БД
-#                        'database': 'vsearchlogDB', }    ## //имя БД vsearchlogDB присвоено ключу database
+
+
 @app.route('/login')
 def do_login() -> str:
     session['logged_in'] = True  #значение true присваивается ключу 'logged_in' в словаре session, значит браузер вошел в систему
